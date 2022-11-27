@@ -1,15 +1,8 @@
 import React from 'react'
 
-export const profile = () => {
+export default function profile() {
   return (
-    <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
+ <div>
     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
   <div class="px-4 py-5 sm:px-6">
     <h3 class="text-lg font-medium leading-6 text-gray-900">Applicant Information</h3>
@@ -70,7 +63,6 @@ export const profile = () => {
   </div>
 </div>
   
-    </body>
-    </html>
-  )
+    </div>
+    )
 }
