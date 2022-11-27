@@ -4,11 +4,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <html>
-      <head>
-        <title>ETHIndia</title>
-      </head>
-      <body>
+  <div>
         <div class="isolate bg-white">
           <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
             <svg
@@ -363,7 +359,6 @@ Maintain control over information shared and your digital identity.</p>
     </ul>
 </footer>
 
-      </body>
-    </html>
+</div>
   );
 }
