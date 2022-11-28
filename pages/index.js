@@ -225,18 +225,18 @@ export default function Home() {
                         href="#"
                         class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
                       >
-                        Get started
+                        Login
                         <span class="text-indigo-200" aria-hidden="true">
-                          &rarr;
+                          {/* &rarr; */}
                         </span>
                       </a>
                       <a
                         href="#"
                         class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
                       >
-                        Live demo
+                        Register
                         <span class="text-gray-400" aria-hidden="true">
-                          &rarr;
+                          {/* &rarr; */}
                         </span>
                       </a>
                     </div>
@@ -275,9 +275,122 @@ export default function Home() {
 
         </div>
         <div class="bg-white py-24 sm:py-32 lg:py-40">
+
+<section style={{margin:"100px", marginTop:"-200px"}} class=" pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+  <div class="container mx-auto">
+    <div class="-mx-4 flex flex-wrap justify-center">
+      <div class="w-full px-4">
+        <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
+          <span class="text-primary mb-2 block text-lg font-semibold">
+            Our Blogs
+          </span>
+          <h2
+            class="text-dark mb-4 text-3xl font-bold sm:text-4xl md:text-[40px]"
+          >
+            Our Recent News
+          </h2>
+          <p class="text-body-color text-base">
+            There are many variations of passages of Lorem Ipsum available but
+            the majority have suffered alteration in some form.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="-mx-4 flex flex-wrap">
+      <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+        <div class="mx-auto mb-10 max-w-[370px]">
+          <div class="mb-8 overflow-hidden rounded">
+            <img
+              src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
+              alt="image"
+              class="w-full"
+            />
+          </div>
+          <div>
+            <span
+              class="bg-primary mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white"
+            >
+              Dec 22, 2023
+            </span>
+            <h3>
+              <a
+                href="javascript:void(0)"
+                class="text-dark hover:text-primary mb-4 inline-block text-xl font-semibold sm:text-2xl lg:text-xl xl:text-2xl"
+              >
+                The Arcana Network
+              </a>
+            </h3>
+            <p class="text-body-color  text-gray-600 text-base">
+            More convenience to design and integrate the dApp is possible since it is powered by the Arcana Network, which offers total data protection and access control for user data.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+        <div class="mx-auto mb-10 max-w-[370px]">
+          <div class="mb-8 overflow-hidden rounded">
+            <img
+              src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-02.jpg"
+              alt="image"
+              class="w-full"
+            />
+          </div>
+          <div>
+            <span
+              class="bg-primary mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white"
+            >
+              Mar 15, 2023
+            </span>
+            <h3>
+              <a
+                href="javascript:void(0)"
+                class="text-dark hover:text-primary mb-4 inline-block text-xl font-semibold sm:text-2xl lg:text-xl xl:text-2xl"
+              >
+               Login with Unstoppable Domains
+              </a>
+            </h3>
+            <p class="text-body-color  text-gray-600 text-base">
+            Thanks to Unstoppable, users have control over login credentials and the developers can avoid hosting database of user information by requesting access when needed.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+        <div class="mx-auto mb-10 max-w-[370px]">
+          <div class="mb-8 overflow-hidden rounded">
+            <img
+              src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-03.jpg"
+              alt="image"
+              class="w-full"
+            />
+          </div>
+          <div>
+            <span
+              class="bg-primary mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white"
+            >
+              Jan 05, 2023
+            </span>
+            <h3>
+              <a
+                href="javascript:void(0)"
+                class="text-dark hover:text-primary mb-4 inline-block text-xl font-semibold sm:text-2xl lg:text-xl xl:text-2xl"
+              >
+              Privacy with Polygon ID
+              </a>
+            </h3>
+            <p class="text-body-color  text-gray-600 text-base">
+            Since Polygon ID is private, access control is based on proving verifiable information rather than sharing it with the verifier (Zero Knowledge concept).This ensures the Right of access to apps with user anonymity
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="sm:text-center">
-      <h2 class="text-lg font-semibold leading-8 text-indigo-600">Transactions</h2>
+      <h2 class="text-lg font-semibold leading-8 text-indigo-600">Locker</h2>
       <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Awesome features</p>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">Web3Locker aims towards making it convenient and secure for users to store and share documents</p>
     </div>
@@ -291,7 +404,7 @@ export default function Home() {
             </svg>
           </div>
           <div class="sm:min-w-0 sm:flex-1">
-            <p class="text-lg font-semibold leading-8 text-gray-900">Competitive exchange rates</p>
+            <p class="text-lg font-semibold leading-8 text-gray-900">-</p>
             <p class="mt-2 text-base leading-7 text-gray-600">
 Uses the decentralized platform which makes storing and accessing files faster.</p>
           </div>
@@ -304,7 +417,7 @@ Uses the decentralized platform which makes storing and accessing files faster.<
             </svg>
           </div>
           <div class="sm:min-w-0 sm:flex-1">
-            <p class="text-lg font-semibold leading-8 text-gray-900">No hidden fees</p>
+            <p class="text-lg font-semibold leading-8 text-gray-900">-</p>
             <p class="mt-2 text-base leading-7 text-gray-600">Documents are verified to prevent any forgery or different files from being shared that are not associated to the original account.</p>
           </div>
         </div>
@@ -316,7 +429,7 @@ Uses the decentralized platform which makes storing and accessing files faster.<
             </svg>
           </div>
           <div class="sm:min-w-0 sm:flex-1">
-            <p class="text-lg font-semibold leading-8 text-gray-900">Transfers are instant</p>
+            <p class="text-lg font-semibold leading-8 text-gray-900">-</p>
             <p class="mt-2 text-base leading-7 text-gray-600">
 Polygon ID applies zero-knowledge native protocols for ultimate user privacy.</p>
           </div>
@@ -330,7 +443,7 @@ Polygon ID applies zero-knowledge native protocols for ultimate user privacy.</p
             </svg>
           </div>
           <div class="sm:min-w-0 sm:flex-1">
-            <p class="text-lg font-semibold leading-8 text-gray-900">Mobile notifications</p>
+            <p class="text-lg font-semibold leading-8 text-gray-900">-</p>
             <p class="mt-2 text-base leading-7 text-gray-600">
 Maintain control over information shared and your digital identity.</p>
           </div>
@@ -341,7 +454,7 @@ Maintain control over information shared and your digital identity.</p>
 </div>
 
 <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between m-4 md:p-6 dark:bg-gray-200">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/" class="hover:underline">Digital Locker™</a>. All Rights Reserved.
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
