@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-// import Web3 from "web3";
-import { NFT } from "./constants/constants"
+import Web3 from "web3";
+import { NFT } from "./constants/constants";
 import { NFTAbi } from "./constants/constants";
 
 export default function profile() {
-
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
   const [address, setUserAddress] = useState();
@@ -58,7 +57,7 @@ export default function profile() {
     // console.log(json);
     return json;
   };
-  
+
   const getNFTImage = async (url) => {
     let imageURL = await parseURL(url);
     let image = imageURL.image;
@@ -82,7 +81,7 @@ export default function profile() {
     let propsURL = await parseURL(url);
     let attributes = propsURL.attributes;
     return attributes;
-  }
+  };
 
   const getNFTs = async () => {
     const web3 = window.web3;
@@ -106,7 +105,7 @@ export default function profile() {
       console.log("Token URI: ", tokenUri);
 
       const img = await getNFTImage(tokenUri);
-      console.log("Image: ", img)
+      console.log("Image: ", img);
       imageList.push(img);
 
       const desc = await getNFTdesc(tokenUri);
@@ -141,34 +140,37 @@ export default function profile() {
 
   return (
     <div class="isolate bg-white">
-          <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-            <svg
-              class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-              viewBox="0 0 1155 678"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+      <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+        <svg
+          class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+          viewBox="0 0 1155 678"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+            fill-opacity=".3"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          />
+          <defs>
+            <linearGradient
+              id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
             >
-              <path
-                fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
-                fill-opacity=".3"
-                d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-              />
-              <defs>
-                <linearGradient
-                  id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
-                  x1="1155.49"
-                  x2="-78.208"
-                  y1=".177"
-                  y2="474.645"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="#9089FC"></stop>
-                  <stop offset="1" stop-color="#FF80B5"></stop>
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-      <div style={{ margin: "50px" }} class="overflow-hidden bg-white shadow sm:rounded-lg">
+              <stop stop-color="#9089FC"></stop>
+              <stop offset="1" stop-color="#FF80B5"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div
+        style={{ margin: "50px" }}
+        class="overflow-hidden bg-white shadow sm:rounded-lg"
+      >
         <div class="px-4 py-5 sm:px-6">
           <h3 class="text-lg font-medium leading-6 text-gray-900">
             Applicant Information
@@ -271,7 +273,7 @@ export default function profile() {
                     </div>
                     <div class="ml-4 flex-shrink-0">
                       <button
-                        onClick={()=>connectWallet()}
+                        onClick={() => connectWallet()}
                         class="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Connect Wallet
@@ -285,16 +287,36 @@ export default function profile() {
         </div>
       </div>
       <div style={{ margin: "50px" }}>
-      {/* <div  class="flex justify-center items-center  bg-white shadow sm:rounded-lg"> */}
-      
-<a href="#" class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xxxl hover:bg-gray-100 ">
-    <img class="object-cover w-5/12 rounded-t-lg  md:h-auto md:rounded-none md:rounded-l-lgx" src="https://www.w3schools.com/images/img_cybermonday_300.png" alt=""/>
-    <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-    </div>
-</a>
-
+        {/* <div  class="flex justify-center items-center  bg-white shadow sm:rounded-lg"> */}
+        {images.map((e, key) => (
+          <a
+            href="#"
+            class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xxxl hover:bg-gray-100 "
+            key={key}
+          >
+            <img
+              class="object-cover w-5/12 rounded-t-lg  md:h-auto md:rounded-none md:rounded-l-lgx"
+              src={images[key]}
+              alt=""
+            />
+            <div class="flex flex-col justify-between p-4 leading-normal">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              {name}
+              </h5>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {description}
+              </p>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {property.map((e, key) => (
+                  <span>
+                    {property[key].trait_type + " : " + property[key].value}
+                    <br />
+                  </span>
+                ))}
+              </p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
     // </div>
