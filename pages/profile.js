@@ -1,6 +1,144 @@
 import React from "react";
+import { useState } from "react";
+
+// import Web3 from "web3";
+import { NFT } from "./constants/constants"
+import { NFTAbi } from "./constants/constants";
 
 export default function profile() {
+
+  const [loading, setLoading] = useState(false);
+  const [connected, setConnected] = useState(false);
+  const [address, setUserAddress] = useState();
+  const [images, setImages] = useState([]);
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [property, setProperty] = useState([]);
+
+  const connectWallet = async () => {
+    setLoading(true);
+    console.log(loading);
+    console.log("== Connecting Wallet");
+
+    // Modern dapp browsers...
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      console.log(window.web3);
+      await window.ethereum.enable();
+      await accountChangeHandler();
+    }
+    // Legacy dapp browsers...
+    else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider);
+      await accountChangeHandler();
+    }
+    // Non-dapp browsers...
+    else {
+      window.alert(
+        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+      );
+    }
+  };
+
+  const accountChangeHandler = async () => {
+    const web3 = window.web3;
+    // Load account
+    const accounts = await web3.eth.getAccounts();
+    // Setting an address data
+    setUserAddress(accounts[0]);
+    console.log("User Address: ", accounts[0]);
+    await getNFTs();
+    setConnected(true);
+    setLoading(false);
+  };
+
+  const parseURL = async (url) => {
+    const data = await fetch(`https://${url}`);
+    const json = await data.json();
+    // console.log(json);
+    return json;
+  };
+  
+  const getNFTImage = async (url) => {
+    let imageURL = await parseURL(url);
+    let image = imageURL.image;
+    image = image.toString();
+    return "https://" + image.slice(8);
+  };
+
+  const getNFTdesc = async (url) => {
+    let descURL = await parseURL(url);
+    let desc = descURL.description;
+    return desc;
+  };
+
+  const getNFTName = async (url) => {
+    let nameURL = await parseURL(url);
+    let name = nameURL.name;
+    return name;
+  };
+
+  const getNFTprops = async (url) => {
+    let propsURL = await parseURL(url);
+    let attributes = propsURL.attributes;
+    return attributes;
+  }
+
+  const getNFTs = async () => {
+    const web3 = window.web3;
+    const professionalNFT = new web3.eth.Contract(NFTAbi, NFT);
+
+    let tokenCount = await professionalNFT.methods.tokenCount().call();
+    console.log("Token Count: ", tokenCount);
+
+    let estateList = [];
+    let imageList = [];
+    let estateDetailList = [];
+    let verifiedList = [];
+    let propertyList = [];
+
+    for (var i = 1; i <= tokenCount; i++) {
+      // const estate = await marketplace.methods.estates(i).call();
+      // estateList.push(estate);
+      // console.log(estate.verified)
+      // verifiedList.push(estate.verified);
+      const tokenUri = await professionalNFT.methods.tokenURI(i).call();
+      console.log("Token URI: ", tokenUri);
+
+      const img = await getNFTImage(tokenUri);
+      console.log("Image: ", img)
+      imageList.push(img);
+
+      const desc = await getNFTdesc(tokenUri);
+      setDescription(desc);
+      console.log(desc);
+
+      const name = await getNFTName(tokenUri);
+      setName(name);
+      console.log(name);
+
+      const property = await getNFTprops(tokenUri);
+      setProperty(property);
+      console.log(property);
+      // console.log(property[0].trait_type," : ",property[0].value);
+      // console.log("first element of first property:", property[0][0]);
+
+      // const documentURI = await document.methods.tokenURI(i).call();
+      // const pd = await parseURL(documentURI);
+      // const doc = await getDocument(pd.image);
+      // console.log(doc.toString());
+      // estateDetailList.push(pd.name);
+    }
+    // setVerified(verifiedList);
+    // setEstates(estateList);
+    setImages(imageList);
+    // setEstateDetails(estateDetailList);
+    // console.log("Images: ", imageList);
+    // console.log(productList);
+    // console.log(productDetailList);
+    setLoading(false);
+  };
+
   return (
     <div class="isolate bg-white">
           <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
@@ -132,12 +270,12 @@ export default function profile() {
                       </span>
                     </div>
                     <div class="ml-4 flex-shrink-0">
-                      <a
-                        href="#"
+                      <button
+                        onClick={()=>connectWallet()}
                         class="font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        Download
-                      </a>
+                        Connect Wallet
+                      </button>
                     </div>
                   </li>
                 </ul>
