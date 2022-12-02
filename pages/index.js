@@ -1,8 +1,35 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+// import SocialLogin from "@biconomy/web3-auth";
 
 export default function Home() {
+
+  const handleLogin = async () => {
+    try {
+      // const authorization = await uauth.loginWithPopup()
+      // console.log("Logged in")
+      // console.log(authorization)
+      // const walletname=authorization.idToken.wallet_address;
+      // const domainName=authorization.idToken.sub;
+      // console.log("wallet address: ",walletname)
+      // console.log("Domain name: ",domainName)
+  
+      // window.location.href="/profile-page"
+  
+      // init wallet
+      // const socialLoginSDK = new SocialLogin();
+      // await socialLoginSDK.init("0x5"); // Enter the network id in init() parameter
+      // socialLoginSDK.showConnectModal();
+  
+      // // show connect modal
+      // socialLoginSDK.showWallet();
+  
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
   <div>
         <div class="isolate bg-white">

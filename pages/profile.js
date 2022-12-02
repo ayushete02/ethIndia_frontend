@@ -5,14 +5,16 @@ import Web3 from "web3";
 import { NFT } from "./constants/constants";
 import { NFTAbi } from "./constants/constants";
 
+var arrayyy = []
 export default function profile() {
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
   const [address, setUserAddress] = useState();
   const [images, setImages] = useState([]);
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
+  const [name, setName] = useState([]);
+  const [description, setDescription] = useState([]);
   const [property, setProperty] = useState([]);
+  const [x, setX] = useState([]);
 
   const connectWallet = async () => {
     setLoading(true);
@@ -90,17 +92,13 @@ export default function profile() {
     let tokenCount = await professionalNFT.methods.tokenCount().call();
     console.log("Token Count: ", tokenCount);
 
-    let estateList = [];
+    let nameList = [];
     let imageList = [];
-    let estateDetailList = [];
+    let descriptionList = [];
     let verifiedList = [];
     let propertyList = [];
 
     for (var i = 1; i <= tokenCount; i++) {
-      // const estate = await marketplace.methods.estates(i).call();
-      // estateList.push(estate);
-      // console.log(estate.verified)
-      // verifiedList.push(estate.verified);
       const tokenUri = await professionalNFT.methods.tokenURI(i).call();
       console.log("Token URI: ", tokenUri);
 
@@ -109,33 +107,30 @@ export default function profile() {
       imageList.push(img);
 
       const desc = await getNFTdesc(tokenUri);
-      setDescription(desc);
+      // setDescription(desc);
+      descriptionList.push(desc);
       console.log(desc);
 
       const name = await getNFTName(tokenUri);
-      setName(name);
+      nameList.push(name);
       console.log(name);
 
-      const property = await getNFTprops(tokenUri);
-      setProperty(property);
-      console.log(property);
-      // console.log(property[0].trait_type," : ",property[0].value);
-      // console.log("first element of first property:", property[0][0]);
-
-      // const documentURI = await document.methods.tokenURI(i).call();
-      // const pd = await parseURL(documentURI);
-      // const doc = await getDocument(pd.image);
-      // console.log(doc.toString());
-      // estateDetailList.push(pd.name);
+      const property01 = await getNFTprops(tokenUri);
+      console.log(property01);
+      // setProperty(property01);
+      propertyList.push(property01);
     }
-    // setVerified(verifiedList);
-    // setEstates(estateList);
+
     setImages(imageList);
-    // setEstateDetails(estateDetailList);
-    // console.log("Images: ", imageList);
-    // console.log(productList);
-    // console.log(productDetailList);
+    setName(nameList);
+    setDescription(descriptionList)
     setLoading(false);
+    console.log(propertyList);
+    arrayyy = propertyList;
+    setProperty(propertyList);
+    setX(propertyList)
+    console.log(x)
+    console.log("USESTATE PROPERTY:" ,arrayyy);
   };
 
   return (
@@ -301,15 +296,15 @@ export default function profile() {
             />
             <div class="flex flex-col justify-between p-4 leading-normal">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-              {name}
+              {name[key]}
               </h5>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {description}
+              {description[key]}
               </p>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {property.map((e, key) => (
+                {arrayyy.map((e, key2) => (
                   <span>
-                    {property[key].trait_type + " : " + property[key].value}
+                    {arrayyy[key][key2].trait_type + " : " + arrayyy[key][key2].value}
                     <br />
                   </span>
                 ))}
