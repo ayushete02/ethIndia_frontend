@@ -9,12 +9,13 @@ var arrayyy = []
 export default function profile() {
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
-  const [address, setUserAddress] = useState();
+  const [address, setUserAddress] = useState('');
   const [images, setImages] = useState([]);
   const [name, setName] = useState([]);
   const [description, setDescription] = useState([]);
   const [property, setProperty] = useState([]);
   const [x, setX] = useState([]);
+  const [NftOwner,setNftOwner]=useState('');
 
   const connectWallet = async () => {
     setLoading(true);
@@ -92,6 +93,10 @@ export default function profile() {
     let tokenCount = await professionalNFT.methods.tokenCount().call();
     console.log("Token Count: ", tokenCount);
 
+    const owner = await professionalNFT.methods.ownerOf(i).call();
+    console.log("Owner: ", owner);
+    setNftOwner((owner)=>owner);
+
     let nameList = [];
     let imageList = [];
     let descriptionList = [];
@@ -131,6 +136,8 @@ export default function profile() {
     setX(propertyList)
     console.log(x)
     console.log("USESTATE PROPERTY:" ,arrayyy);
+    console.log("NFTO:",NftOwner);
+    console.log("address us:")
   };
 
   return (
